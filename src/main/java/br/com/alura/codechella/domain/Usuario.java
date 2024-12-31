@@ -1,37 +1,22 @@
-package br.com.alura.codechella.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+package br.com.alura.codechella.domain;
 
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
-@Entity
-@Table(name = "usuarios")
 public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String cpf;
     private String nome;
     private LocalDate nascimento;
     private String email;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCpf() {
         return cpf;
     }
 
     public void setCpf(String cpf) {
+        if (!validarCpf(cpf)) {
+            throw new IllegalArgumentException("CPF inválido");
+        }
         this.cpf = cpf;
     }
 
@@ -57,5 +42,11 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    private boolean validarCpf(String cpf) {
+        String regexCpf = "^[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}\\-[0-9]{2}$";
+        Pattern pattern = Pattern.compile(regexCpf);
+        return pattern.matcher(cpf).matches();
     }
 }
