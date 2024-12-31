@@ -70,4 +70,15 @@ public class Usuario {
         Pattern pattern = Pattern.compile(regexCpf);
         return pattern.matcher(cpf).matches();
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "cpf='" + cpf + '\'' +
+                ", nome='" + nome + '\'' +
+                ", nascimento=" + nascimento +
+                ", email='" + email + '\'' +
+                ", endereco=" + endereco +
+                '}';
+    }
 }
