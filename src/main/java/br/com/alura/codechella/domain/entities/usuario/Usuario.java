@@ -1,4 +1,4 @@
-package br.com.alura.codechella.domain;
+package br.com.alura.codechella.domain.entities.usuario;
 
 import java.time.LocalDate;
 import java.util.regex.Pattern;
@@ -8,6 +8,16 @@ public class Usuario {
     private String nome;
     private LocalDate nascimento;
     private String email;
+
+    public Usuario(String cpf, String nome, LocalDate nascimento, String email) {
+        if (!validarCpf(cpf)) {
+            throw new IllegalArgumentException("CPF inválido");
+        }
+        this.cpf = cpf;
+        this.nome = nome;
+        this.nascimento = nascimento;
+        this.email = email;
+    }
 
     public String getCpf() {
         return cpf;
