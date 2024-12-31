@@ -1,0 +1,1 @@
+docker run --name codechella_db -e POSTGRES_USER=postgress -e POSTGRES_PASSWORD=1234 -e POSTGRES_DB=codechella_db -p 5432:5432 -d postgres:latest
