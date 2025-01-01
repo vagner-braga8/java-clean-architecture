@@ -40,9 +40,9 @@ spring.datasource.password=1234
 ```
 **Dica:** Para uma configuração mais segura e flexível, é recomendável usar variáveis de ambiente para armazenar informações sensíveis, como credenciais do banco de dados. O exemplo acima foi apenas ilustrativo. Você pode configurar as variáveis de ambiente e usá-las da seguinte maneira:
 ```bash
-spring.datasource.url=jdbc:postgresql://localhost:5432/$DB_NAME
-spring.datasource.username=$DB_USER
-spring.datasource.password=$DB_PASSWORD
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWORD}
 ```
 
 ### **🌐 Passo 3: Verificando a Conexão com o Banco de Dados**
